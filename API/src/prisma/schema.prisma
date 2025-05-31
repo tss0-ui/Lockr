@@ -1,0 +1,13 @@
+model VaultItem {
+  id        String   @id @default(uuid())
+  userId    String
+  title     String
+  username  String?
+  password  String?
+  notes     String?
+  uri       String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id])
+}
